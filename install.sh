@@ -1,5 +1,5 @@
 
-# check current directory
+## check current directory
 if [ ! -e install.sh ]; then
     echo "install.sh not found."
     exit 1
@@ -14,8 +14,12 @@ dotfiles=(
   ".vimrc"
 )
 
-# link dotfiles
+## link dotfiles
 for file in "${dotfiles[@]}"; do
     ln -snf `pwd`/$file $HOME/$file
 done
+
+## make folders
+mkdir -p ~/var/screen/log
+mkdir -p ~/var/screen/hardcopy
 
